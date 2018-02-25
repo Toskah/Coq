@@ -79,12 +79,37 @@ Proof.
    split. 
    constructor.
    destruct H.
-   exists a.
    destruct H.
    destruct H.
-   rewrite H.
-   ring_simplify.
+   destruct H0.
 
+   exists (x-x0).
+   ring_simplify.
+   rewrite H.
+   rewrite H0.
+   reflexivity.
+   destruct H.
+   destruct H.
+   assumption. 
+   intro.
+   intro.
+   constructor.
+   split.
+   destruct H.
+   destruct H.
+   destruct H.
+   destruct H0.
+   exists (x + x0).
+   ring_simplify.
+   rewrite  <- H.
+   rewrite <- H0.
+   ring_simplify.
+   ring_simplify.
+   reflexivity.
+   destruct H.
+   destruct H.
+   assumption.
+   
    (* complete the proof using tactics
       intro, split, destruct, assumption, exists, 
       constructor, ring_simplify, rewrite, reflexivity *)
