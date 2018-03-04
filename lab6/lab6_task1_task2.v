@@ -4,7 +4,8 @@ Require Import Ensembles.
 Variable U : Type.
 
 Variable C : Ensemble U.
-  
+
+(* ------ TASK 1 ------ *)
 Theorem IntersectSetmius : forall B1 B2 : Ensemble U,
              Intersection U (Setminus U B1 C) (Setminus U B2 C) =
              Setminus U (Intersection U B1 B2) C. 
@@ -56,6 +57,9 @@ Fixpoint intersectionBC (n : nat) : Ensemble U :=
   | S m => Intersection U (intersectionBC m) (Setminus U (B (S m)) C)
   end.
 
+
+(* ------ TASK 2 ------ *)
+
 Theorem generalizedIntersectionSetminus :
         forall n : nat, intersectionBC n = Setminus U (intersectionB n) C.
 Proof.
@@ -81,54 +85,3 @@ apply IntersectSetmius.
 
 Qed.
 
-Require Import Ensembles.
-
-
-
-
-  
-Theorem IntersectSetminusAlt : forall B1 B2 : Ensemble U,
-             Intersection U (Setminus U C B1) (Setminus U C B2) =
-             Setminus U C (Union U B1 B2). 
-Proof.
-intros.
-apply Extensionality_Ensembles.
-split.
-split.
-destruct H.
-destruct H.
-assumption.
-destruct H.
-
-(* to be completed *)
-
-Qed.
-
-Variable B : nat -> (Ensemble U).
-
-Fixpoint unionB (n : nat) : Ensemble U :=
-  match n with
-  | 0   => B 0
-  | S m => Union U (unionB m) (B (S m))
-  end.
-
-Fixpoint intersectionCB (n : nat) : Ensemble U :=
-  match n with
-  | 0   => Setminus U C (B 0) 
-  | S m => Intersection U (intersectionCB m) (Setminus U C (B (S m)))
-  end.
-
-Theorem generalizedIntersectionSetminusAlt :
-        forall n : nat, intersectionCB n = Setminus U C (unionB n).
-Proof.
-induction n.
-apply Extensionality_Ensembles.
-
-(* to be completed *)
-
-Qed.
-
-
-
-
-        
