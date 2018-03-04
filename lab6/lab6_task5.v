@@ -87,6 +87,11 @@ split.
 intro. intro.
 right.
 split.
+destruct H.
+assumption.
+destruct H.
+
+
 
 
 (* to be completed *)
