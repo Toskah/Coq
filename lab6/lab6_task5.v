@@ -84,9 +84,16 @@ intros.
 apply Extensionality_Ensembles.
 
 split.
+
 intro. intro.
+destruct H.
 right.
+apply IntersectionToAnd.
 split.
+assumption.
+apply UnionToOr in H0.
+destruct H0 as [H1|H2].
+assumption.
 
 
 (* to be completed *)
