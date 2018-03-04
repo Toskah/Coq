@@ -210,18 +210,7 @@ destruct H.
 right.
 apply IntersectionToAnd.
 split.
-<<<<<<< HEAD
-destruct H.
-assumption.
-destruct H.
 
-
-=======
-assumption.
-apply UnionToOr in H0.
-destruct H0 as [H1|H2].
-assumption.
->>>>>>> d90c2ec79cb4b5ffc81a6904dafb9aa7294a6c79
 
 
 (* to be completed *)
