@@ -172,6 +172,16 @@ assumption.
 
 intro.
 intro.
+right.
+constructor 1.
+destruct H.
+assumption.
+destruct H.
+destruct H0.
+
+(* alt attempt *)
+intro.
+intro.
 left.
 
 apply IHn.
@@ -179,9 +189,10 @@ split.
 destruct H.
 assumption.
 destruct H.
-rewrite UnionToOr in H0.
+destruct H0.
+assumption.
 
-
+(*alt attempt*)
 (* to be completed *)
 
 
